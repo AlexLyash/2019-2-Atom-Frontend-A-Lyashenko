@@ -25,5 +25,8 @@ module.exports = {
     'no-underscore-dangle': 0,
     'jsx-a11y/label-has-associated-control': 0,
     'prefer-template': 0,
+    'no-useless-concat': 0,
+    'jsx-a11y/control-has-associated-label': 0,
+    'jsx-a11y/href-no-hash': 0,
   },
 };

@@ -141,7 +141,7 @@ class MessageForm extends HTMLElement {
     }
   }
 
-  generateMessage(senderName = 'Alexey', text = this.$input.value, timestamp = null) {
+  generateMessage(senderName = 'Alexey', text = this.$input.value) {
     const message = document.createElement('div');
     message.className = 'message-item';
     const time = new Date().toLocaleString('ru', {
@@ -149,7 +149,7 @@ class MessageForm extends HTMLElement {
       minute: 'numeric',
     });
 
-    message.innerHTML = senderName + '(' + time + ')' +': '+ text;
+    message.innerHTML = senderName + '(' + time + ')' + ': ' + text;
 
     return message;
   }
@@ -161,7 +161,7 @@ class MessageForm extends HTMLElement {
       this.messages = [];
     }
     this.messages.forEach((msg) => {
-      const $message = this.generateMessage(msg.name, msg.text, msg.timestamp)
+      const $message = this.generateMessage(msg.name, msg.text, msg.timestamp);
       this.$messagesList.appendChild($message);
     });
   }
