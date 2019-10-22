@@ -24,5 +24,6 @@ module.exports = {
   rules: {
     'no-underscore-dangle': 0,
     'jsx-a11y/label-has-associated-control': 0,
+    'prefer-template': 0,
   },
 };
