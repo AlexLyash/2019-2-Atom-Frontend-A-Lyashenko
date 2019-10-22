@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 const template = document.createElement('template');
 template.innerHTML = `
     <style>
@@ -140,19 +139,17 @@ class MessageForm extends HTMLElement {
       this.messages.push(msgobj);
       localStorage.setItem(`dialogue#${this.$dialogueID}`, JSON.stringify(this.messages));
     }
-
-    
   }
 
   generateMessage(senderName = 'Alexey', text = this.$input.value, timestamp = null) {
     const message = document.createElement('div');
-    message.className = "message-item";
+    message.className = 'message-item';
     const time = new Date().toLocaleString('ru', {
       hour: 'numeric',
       minute: 'numeric',
     });
 
-    message.innerHTML = senderName+'(' + time + ')' +': '+ text;
+    message.innerHTML = senderName + '(' + time + ')' +': '+ text;
 
     return message;
   }

@@ -10,9 +10,9 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $repo_token
-  local_dir: build
+  local_dir: web_components/build
   on:
     branch:
       - master
       - devel
-      - hw1
+      - homework2
