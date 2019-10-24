@@ -5,17 +5,16 @@ template.innerHTML = `
         
 
         :host {
-            flex: 1 0 300px;
             max-width: 40%;
             height: 90%;
-            font-family: sans-serif;
+            font-family: Times New Roman;
             background-color: #CAA561 ;
             display: flex;
             flex-direction: column;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             opacity: 0.8;
             border-radius: 30px;
-            border: 1px solid #ebdfb9;
+            border: 5px solid #ebdfb9;
             overflow: hidden;
         }
 
@@ -46,39 +45,7 @@ template.innerHTML = `
             align-content: flex-end;
             flex-direction: column;
 
-        }
-
-        .message-item {
-          display: flex;
-          flex-flow: column nowrap;
-          margin-right: 10px;
-          float: right;
-          padding: 10px;
-          max-width: 80%;
-          word-break: break-word;
-
-          background-color: #40341F;
-          border-radius: .4em;
-          color: #fff;
-        }
-        .message-item .text{
-          padding: 4px 8px;
-          background-color: #29384B;
-          border-radius: .4em;
-          color: #fff;
-        }
-  
-  
-        .message-item .time{
-            font-size: 10px;
-            padding: 4px 8px;
-            color: #999;
-            align-self: flex-end;
-        }
-  
-        .message-item .name{
-            display: none;
-        }        
+        }   
 
         .inputFrom {
             width: 100%;
@@ -141,18 +108,17 @@ class MessageForm extends HTMLElement {
     }
   }
 
-  generateMessage(senderName = 'Alexey', text = this.$input.value) {
-    const message = document.createElement('div');
-    message.className = 'message-item';
-    const time = new Date().toLocaleString('ru', {
-      hour: 'numeric',
-      minute: 'numeric',
-    });
-
-    message.innerHTML = senderName + '(' + time + ')' + ': ' + text;
+  generateMessage(senderName = 'Alexey', text = this.$input.value, timestamp = null) {
+    const message = document.createElement('message-box');
+    if (timestamp) {
+      message.setAttribute('time', timestamp);
+    }
+    message.setAttribute('text', text);
+    message.setAttribute('name', senderName);
 
     return message;
   }
+
 
   connectedCallback() {
     if (`dialogue#${this.$dialogueID}` in localStorage) {

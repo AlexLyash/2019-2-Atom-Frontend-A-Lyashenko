@@ -28,5 +28,7 @@ module.exports = {
     'no-useless-concat': 0,
     'jsx-a11y/control-has-associated-label': 0,
     'jsx-a11y/href-no-hash': 0,
+    'eslint-disable-next-line default-case': 0,
+    'eslint(default-case)': 0,
   },
 };
