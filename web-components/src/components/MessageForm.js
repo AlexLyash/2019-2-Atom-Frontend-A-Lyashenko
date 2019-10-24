@@ -29,6 +29,7 @@ template.innerHTML = `
         }
         
         .chat {
+            height: 88vh;
             width: 100%;
             display: flex;
             flex: auto;
@@ -49,9 +50,9 @@ template.innerHTML = `
 
         .inputFrom {
             width: 100%;
+            // flex: 1 0 auto;
             background-color: #F7F8FA;
-            
-            z-index: 1;
+            // z-index: 1;
         }
 
         ::-webkit-scrollbar{
@@ -68,7 +69,7 @@ template.innerHTML = `
     <div class='header'>
       lGram
     </div>
-    <div class='chat'>
+    <div class='chat' id='chat'>
         <div class='messagesList'>
         </div>
     </div>
@@ -129,6 +130,7 @@ class MessageForm extends HTMLElement {
     this.messages.forEach((msg) => {
       const $message = this.generateMessage(msg.name, msg.text, msg.timestamp);
       this.$messagesList.appendChild($message);
+      document.getElementById('chat').scrollTo(0, '80vh');
     });
   }
 
