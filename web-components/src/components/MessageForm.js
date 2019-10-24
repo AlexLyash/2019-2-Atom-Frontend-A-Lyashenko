@@ -110,6 +110,9 @@ class MessageForm extends HTMLElement {
   }
 
   generateMessage(senderName = 'Alexey', text = this.$input.value, timestamp = null) {
+    if (text === '') {
+      return null;
+    }
     const message = document.createElement('message-box');
     if (timestamp) {
       message.setAttribute('time', timestamp);
