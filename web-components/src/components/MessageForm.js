@@ -66,9 +66,9 @@ template.innerHTML = `
         }
     </style>
     
-    <div class='header'>
+    <header-custom>
       lGram
-    </div>
+    </header-custom>
     <div class='chat' id='chat'>
         <div class='messagesList'>
         </div>
